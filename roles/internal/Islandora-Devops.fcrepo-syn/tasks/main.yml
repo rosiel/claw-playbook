@@ -1,16 +1,16 @@
 ---
-- include: os-vars.yml
+- ansible.builtin.include_tasks: os-vars.yml
   tags:
     - fcrepo-syn
     - fcrepo-syn-config
     - fcrepo-syn-install
 
-- include: install.yml
+- ansible.builtin.include_tasks: install.yml
   tags:
     - fcrepo-syn
     - fcrepo-syn-install
 
-- include: "config-{{ ansible_os_family }}.yml"
+- ansible.builtin.include_tasks: "config-{{ ansible_os_family }}.yml"
   tags:
     - fcrepo-syn
     - fcrepo-syn-config

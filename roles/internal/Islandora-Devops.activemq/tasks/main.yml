@@ -1,11 +1,11 @@
 ---
 
-- include: user.yml
+- ansible.builtin.include_tasks: user.yml
   tags:
     - activemq
     - activemq-user
 
-- include: install.yml
+- ansible.builtin.include_tasks: install.yml
   tags:
     - activemq
     - activemq-install
