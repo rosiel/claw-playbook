@@ -1,5 +1,0 @@
-#
-# Set variables for Debian
-#
-__blazegraph_log_dir: /var/log/tomcat9/blazegraph
-

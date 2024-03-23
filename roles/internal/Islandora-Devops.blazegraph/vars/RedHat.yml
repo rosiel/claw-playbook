@@ -1,5 +1,0 @@
-#
-# Set variables for RedHat
-#
-__blazegraph_log_dir: /opt/tomcat/logs/blazegraph
-
