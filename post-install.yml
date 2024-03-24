@@ -18,10 +18,11 @@
 
     - name: Add Cantaloupe cache to Tomcat writable paths
       lineinfile:
+        create: true
         path: "/etc/systemd/system/tomcat9.service.d/override.conf"
         regexp: 'var/cache/cantaloupe/$'
         line: 'ReadWritePaths=/var/cache/cantaloupe/'
-        insertafter: EOF
+        insertafter: "[Service]"
       when: "ansible_os_family == 'Debian'"
 
     - name: Add Cantaloupe log to Tomcat writable paths
@@ -84,16 +85,6 @@
         group: "{{ webserver_app_user }}"
         mode: 0775
         recurse: yes
-
-    - name: Chown islandora_defaults feature
-      file:
-        dest: "{{ drupal_core_path }}/modules/contrib/islandora_defaults"
-        state: directory
-        owner: "{{ webserver_app_user }}"
-        group: "{{ webserver_app_user }}"
-        mode: 0775
-        recurse: yes
-      when: post_install_chown_defaults
 
     - name: Chown controlled access terms default configuration
       file:
